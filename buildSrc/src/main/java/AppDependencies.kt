@@ -10,6 +10,17 @@ object AppDependencies {
     private val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
+
+    //data net
+    private val retrofitClient = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    private val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+
+    //data db
+    private val roomDbClient = "android.arch.persistence.room:runtime:${Versions.room}"
+    private val roomDbKtxSupport = "androidx.room:room-ktx:${Versions.room}"
+    private val roomDbClientCompilerKapt = "android.arch.persistence.room:compiler:${Versions.room}"
+
+
     //test libs
     private val junit = "junit:junit:${Versions.junit}"
     private val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
@@ -21,6 +32,20 @@ object AppDependencies {
         add(appcompat)
         add(constraintLayout)
     }
+
+    val dataImplementationLibraries = arrayListOf<String>().apply {
+        add(kotlinStdLib)
+        add(coreKtx)
+        add(retrofitClient)
+        add(retrofitConverter)
+        add(roomDbClient)
+        add(roomDbKtxSupport)
+    }
+
+    val dataKaptLibraries = arrayListOf<String>().apply {
+        add(roomDbClientCompilerKapt)
+    }
+
 
     val androidTestLibraries = arrayListOf<String>().apply {
         add(extJUnit)
