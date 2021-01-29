@@ -10,15 +10,22 @@ object AppDependencies {
     private val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
+    //core
+    private val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
+    private val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
+    private val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
+    private val viewModelSavedState =
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifeCycle}"
+    private val lifeCycleKapt = "androidx.lifecycle:lifecycle-compiler:${Versions.lifeCycle}"
 
     //data net
     private val retrofitClient = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     private val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 
     //data db
-    private val roomDbClient = "android.arch.persistence.room:runtime:${Versions.room}"
+    private val roomDbClient = "androidx.room:room-runtime:${Versions.room}"
     private val roomDbKtxSupport = "androidx.room:room-ktx:${Versions.room}"
-    private val roomDbClientCompilerKapt = "android.arch.persistence.room:compiler:${Versions.room}"
+    private val roomDbClientCompilerKapt = "androidx.room:room-compiler:${Versions.room}"
 
 
     //test libs
@@ -26,26 +33,32 @@ object AppDependencies {
     private val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
     private val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
-    val appLibraries = arrayListOf<String>().apply {
+    private val baseImplementationLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
         add(coreKtx)
+    }
+
+    private val coreImplementationLibraries = arrayListOf<String>().apply {
+        addAll(baseImplementationLibraries)
+        add(viewModel)
+        add(liveData)
+        add(lifeCycle)
+        add(viewModelSavedState)
+    }
+
+    val applicationImplementationLibraries = arrayListOf<String>().apply {
         add(appcompat)
         add(constraintLayout)
     }
 
     val dataImplementationLibraries = arrayListOf<String>().apply {
-        add(kotlinStdLib)
-        add(coreKtx)
+        addAll(baseImplementationLibraries)
         add(retrofitClient)
         add(retrofitConverter)
         add(roomDbClient)
         add(roomDbKtxSupport)
-    }
-
-    val dataKaptLibraries = arrayListOf<String>().apply {
         add(roomDbClientCompilerKapt)
     }
-
 
     val androidTestLibraries = arrayListOf<String>().apply {
         add(extJUnit)
@@ -68,6 +81,10 @@ fun DependencyHandler.implementation(list: List<String>) {
     list.forEach { dependency ->
         add("implementation", dependency)
     }
+}
+
+fun DependencyHandler.project(project: String) {
+    add("implementation project", project)
 }
 
 fun DependencyHandler.androidTestImplementation(list: List<String>) {

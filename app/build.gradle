@@ -50,7 +50,10 @@ dependencies {
 //    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //app libs
-    implementation(AppDependencies.appLibraries)
+    project(':core')
+    project(':data')
+    project(':domain')
+    project(':presentation')
     //test libs
     testImplementation(AppDependencies.testLibraries)
     androidTestImplementation(AppDependencies.androidTestLibraries)
