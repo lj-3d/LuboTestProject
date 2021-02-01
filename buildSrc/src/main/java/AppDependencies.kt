@@ -18,6 +18,11 @@ object AppDependencies {
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifeCycle}"
     private val lifeCycleKapt = "androidx.lifecycle:lifecycle-compiler:${Versions.lifeCycle}"
 
+    private val coroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    private val coroutinesCore =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+
     //data net
     private val retrofitClient = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     private val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
@@ -58,6 +63,7 @@ object AppDependencies {
         add(roomDbClient)
         add(roomDbKtxSupport)
         add(roomDbClientCompilerKapt)
+        add(coroutinesCore)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {

@@ -8,6 +8,7 @@ object Versions {
 
     //core
     const val lifeCycle = "2.2.0"
+    const val coroutines = "1.4.2"
 
     //Retrofit
     const val retrofit = "2.1.0"

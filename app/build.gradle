@@ -44,7 +44,6 @@ android {
 }
 
 
-
 dependencies {
     //std lib
 //    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -54,6 +53,9 @@ dependencies {
     project(':data')
     project(':domain')
     project(':presentation')
+
+    implementation(AppDependencies.applicationImplementationLibraries)
+
     //test libs
     testImplementation(AppDependencies.testLibraries)
     androidTestImplementation(AppDependencies.androidTestLibraries)
