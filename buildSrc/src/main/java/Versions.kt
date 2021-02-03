@@ -12,6 +12,7 @@ object Versions {
 
     //Retrofit
     const val retrofit = "2.1.0"
+    const val interceptor = "4.9.0"
 
     //Room
     const val room = "2.2.6"

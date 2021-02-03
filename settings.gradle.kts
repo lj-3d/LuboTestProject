@@ -1,4 +1,3 @@
-include(":domain")
 include(":presentation")
 include(":data")
 include(":core")

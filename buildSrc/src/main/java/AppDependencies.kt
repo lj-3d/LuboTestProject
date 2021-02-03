@@ -11,6 +11,7 @@ object AppDependencies {
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     //core
+
     private val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
     private val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
     private val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
@@ -26,6 +27,7 @@ object AppDependencies {
     //data net
     private val retrofitClient = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     private val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    private val interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 
     //data db
     private val roomDbClient = "androidx.room:room-runtime:${Versions.room}"
@@ -44,22 +46,24 @@ object AppDependencies {
     }
 
     private val coreImplementationLibraries = arrayListOf<String>().apply {
+        add(appcompat)
+        add(constraintLayout)
         addAll(baseImplementationLibraries)
         add(viewModel)
         add(liveData)
         add(lifeCycle)
         add(viewModelSavedState)
+        add(coroutinesAndroid)
     }
 
     val applicationImplementationLibraries = arrayListOf<String>().apply {
-        add(appcompat)
-        add(constraintLayout)
     }
 
     val dataImplementationLibraries = arrayListOf<String>().apply {
         addAll(baseImplementationLibraries)
         add(retrofitClient)
         add(retrofitConverter)
+        add(interceptor)
         add(roomDbClient)
         add(roomDbKtxSupport)
         add(roomDbClientCompilerKapt)
@@ -86,6 +90,12 @@ fun DependencyHandler.kapt(list: List<String>) {
 fun DependencyHandler.implementation(list: List<String>) {
     list.forEach { dependency ->
         add("implementation", dependency)
+    }
+}
+
+fun DependencyHandler.api(list: List<String>) {
+    list.forEach { dependency ->
+        add("api", dependency)
     }
 }
 
