@@ -14,7 +14,7 @@ abstract class BaseNetworkSource {
         }
 
         return if (response.isSuccessful) {
-            ApiResult.Success(response.body())
+            ApiResult.Success(response.body()!!)
         } else {
             ApiResult.Error(
                 ApiException(response.code(), response.message())

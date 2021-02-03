@@ -11,7 +11,7 @@ object Versions {
     const val coroutines = "1.4.2"
 
     //Retrofit
-    const val retrofit = "2.1.0"
+    const val retrofit = "2.9.0"
     const val interceptor = "4.9.0"
 
     //Room
