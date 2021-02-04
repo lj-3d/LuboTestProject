@@ -1,4 +1,6 @@
+include(":repository")
+include(":local")
 include(":presentation")
-include(":data")
+include(":network")
 include(":core")
 include(":app")

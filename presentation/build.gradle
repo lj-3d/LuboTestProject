@@ -10,5 +10,5 @@ android {
 
 dependencies {
     implementation project(':core')
-    implementation project(':data')
+    api project(':repository')
 }

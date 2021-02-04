@@ -12,6 +12,6 @@ class AuthActivity : BaseActivity<AuthViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.auth("380502596124")
+        viewModel.auth("+380974213434")
     }
 }
