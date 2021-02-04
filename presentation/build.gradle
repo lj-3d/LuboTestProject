@@ -6,7 +6,12 @@ plugins {
 
 android {
     compileSdkVersion(AppConfig.compileSdk)
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
+
 
 dependencies {
     implementation project(':core')

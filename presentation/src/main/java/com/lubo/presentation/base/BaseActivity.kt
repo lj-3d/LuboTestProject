@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 
 
-abstract class BaseActivity<AndroidViewModel : BaseViewModel> : AppCompatActivity() {
+abstract class BaseActivity<AndroidViewModel : BaseViewModel
+        , BindingView : androidx.viewbinding.ViewBinding
+        > : AppCompatActivity() {
 
-    protected abstract var layoutId: Int
+    protected abstract var viewBinding: BindingView
     protected abstract var viewModelClass: Class<AndroidViewModel>
 
     protected val viewModel: AndroidViewModel by lazy {
@@ -16,9 +18,10 @@ abstract class BaseActivity<AndroidViewModel : BaseViewModel> : AppCompatActivit
         ).create(viewModelClass)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId)
+        setContentView(viewBinding.root)
     }
 
 }

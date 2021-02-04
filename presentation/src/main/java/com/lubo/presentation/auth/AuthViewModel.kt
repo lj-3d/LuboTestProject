@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.viewModelScope
 import com.lubo.presentation.base.BaseViewModel
 import com.lubo.repository.impl.auth.AuthRepositoryImpl
-import com.lubo.source.impl.network.auth.AuthMapper
-import com.lubo.source.impl.network.auth.AuthNetSourceImpl
-import com.lubo.source.impl.network.auth.TokenMapper
+import com.lubo.impl.network.auth.AuthMapper
+import com.lubo.impl.network.auth.AuthNetSourceImpl
+import com.lubo.impl.network.auth.TokenMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

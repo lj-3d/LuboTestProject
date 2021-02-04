@@ -1,10 +1,10 @@
 package com.lubo.repository.impl.auth
 
 import com.lubo.repository.base.AuthRepository
-import com.lubo.source.base.network.ApiResult
-import com.lubo.source.base.network.auth.AuthNetSource
-import com.lubo.source.impl.network.auth.AuthMapper
-import com.lubo.source.impl.network.auth.TokenMapper
+import com.lubo.base.network.ApiResult
+import com.lubo.base.network.auth.AuthNetSource
+import com.lubo.impl.network.auth.AuthMapper
+import com.lubo.impl.network.auth.TokenMapper
 
 class AuthRepositoryImpl(
     private val authNetSource: AuthNetSource,
