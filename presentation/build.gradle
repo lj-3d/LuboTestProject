@@ -6,6 +6,12 @@ plugins {
 
 android {
     compileSdkVersion(AppConfig.compileSdk)
+    buildToolsVersion(AppConfig.buildToolsVersion)
+
+    defaultConfig {
+        minSdkVersion(AppConfig.minSdk)
+        targetSdkVersion(AppConfig.targetSdk)
+    }
 
     buildFeatures {
         viewBinding = true

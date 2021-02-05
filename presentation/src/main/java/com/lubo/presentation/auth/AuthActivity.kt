@@ -6,10 +6,10 @@ import com.lubo.presentation.databinding.AuthActivityBinding
 
 class AuthActivity : BaseActivity<AuthViewModel, AuthActivityBinding>() {
 
-    override var viewBinding: AuthActivityBinding = AuthActivityBinding.inflate(layoutInflater)
     override var viewModelClass: Class<AuthViewModel> = AuthViewModel::class.java
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        viewBinding = AuthActivityBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         viewModel.auth("+380974213434")
     }

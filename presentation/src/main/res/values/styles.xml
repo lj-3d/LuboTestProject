@@ -1,1 +1,26 @@
-<resources></resources>
+<resources>
+
+    <style name="TxtRegular" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/txt_normal_size</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/cc_pragmatica_regular</item>
+    </style>
+
+    <style name="BtnRegularPrimary" parent="TxtRegular">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/txt_white</item>
+        <item name="background">@drawable/primary_rounded_button</item>
+        <item name="android:stateListAnimator">@animator/button_state_animator</item>
+    </style>
+
+    <style name="BtnRegularSecondary" parent="TxtRegular">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/txt_white</item>
+        <item name="background">@drawable/secondary_rounded_button</item>
+<!--        <item name="android:stateListAnimator">@animator/button_state_animator</item>-->
+    </style>
+
+
+</resources>

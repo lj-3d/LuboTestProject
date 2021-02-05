@@ -9,7 +9,7 @@ abstract class BaseActivity<AndroidViewModel : BaseViewModel
         , BindingView : androidx.viewbinding.ViewBinding
         > : AppCompatActivity() {
 
-    protected abstract var viewBinding: BindingView
+    protected lateinit var viewBinding: BindingView
     protected abstract var viewModelClass: Class<AndroidViewModel>
 
     protected val viewModel: AndroidViewModel by lazy {
@@ -22,6 +22,6 @@ abstract class BaseActivity<AndroidViewModel : BaseViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
-    }
 
+    }
 }
