@@ -1,5 +1,41 @@
 <resources>
 
+    <style name="LLHMatchWrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="LLHWWrapMatch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="LLHWMatchMatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="LLVMatchWrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LLVWrapMatch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LLVWMatchMatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
     <style name="TxtRegular" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -8,18 +44,28 @@
         <item name="android:fontFamily">@font/cc_pragmatica_regular</item>
     </style>
 
+    <style name="TxtBold" parent="TxtRegular">
+        <item name="android:textSize">@dimen/txt_big_size</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/cc_pragmatica_bold</item>
+    </style>
+
     <style name="BtnRegularPrimary" parent="TxtRegular">
         <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
         <item name="android:textColor">@color/txt_white</item>
-        <item name="background">@drawable/primary_rounded_button</item>
+        <item name="android:layout_margin">@dimen/offset_8</item>
+        <item name="android:background">@drawable/primary_rounded_button</item>
         <item name="android:stateListAnimator">@animator/button_state_animator</item>
     </style>
 
     <style name="BtnRegularSecondary" parent="TxtRegular">
         <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
         <item name="android:textColor">@color/txt_white</item>
-        <item name="background">@drawable/secondary_rounded_button</item>
-<!--        <item name="android:stateListAnimator">@animator/button_state_animator</item>-->
+        <item name="android:layout_margin">@dimen/offset_8</item>
+        <item name="android:background">@drawable/secondary_rounded_button</item>
+        <item name="android:stateListAnimator">@animator/button_state_animator</item>
     </style>
 
 

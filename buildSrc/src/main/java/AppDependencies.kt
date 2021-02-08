@@ -1,6 +1,7 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 object AppDependencies {
+
     //std lib
     val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
@@ -9,9 +10,11 @@ object AppDependencies {
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
+    const val BRVAH =
+        "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Versions.brvah}"
 
     //core
-
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
     const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifeCycle}"
     const val lifeCycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
@@ -23,6 +26,7 @@ object AppDependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val coroutinesCore =
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+
 
     //data net
     const val retrofitClient = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
@@ -47,7 +51,6 @@ object AppDependencies {
 
     val coreImplementationLibraries = arrayListOf<String>().apply {
         add(appcompat)
-        add(constraintLayout)
         addAll(baseImplementationLibraries)
         add(viewModel)
         add(liveData)
@@ -74,6 +77,11 @@ object AppDependencies {
         add(retrofitConverter)
         add(interceptor)
         add(coroutinesCore)
+    }
+
+    val presentationImplementationLibraries = arrayListOf<String>().apply {
+        add(recyclerView)
+        add(BRVAH)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {

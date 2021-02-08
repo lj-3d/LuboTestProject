@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:gravity="center"
+        style="@style/LLVWMatchMatch"
+        tools:viewBindingIgnore="true">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgOnboarding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/img_onboarding_1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtOnboarding"
+            style="@style/TxtBold"
+            android:layout_marginTop="@dimen/offset_24"
+            android:textColor="@color/txt_white"
+            tools:text="@string/onboarding_message_1" />
+
+</LinearLayout>

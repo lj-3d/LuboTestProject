@@ -2,5 +2,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <corners android:radius="@dimen/btn_corner_radius" />
     <size android:height="@dimen/btn_height" />
-    <solid android:color="@color/primary_black" />
+    <solid android:color="@color/btn_primary_color" />
 </shape>

@@ -25,4 +25,6 @@ object Versions {
     //UI
     const val appcompat = "1.3.0-alpha01"
     const val constraintLayout = "2.0.0-beta8"
+    const val recyclerview = "1.1.0"
+    const val brvah = "3.0.4"
 }
