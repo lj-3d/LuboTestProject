@@ -3,22 +3,12 @@ package com.lubo.presentation.auth
 import android.app.Application
 import androidx.lifecycle.viewModelScope
 import com.lubo.presentation.base.BaseViewModel
-import com.lubo.repository.impl.auth.AuthRepositoryImpl
-import com.lubo.impl.network.auth.AuthMapper
-import com.lubo.impl.network.auth.AuthNetSourceImpl
-import com.lubo.impl.network.auth.TokenMapper
+import com.lubo.repository.base.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AuthViewModel(application: Application) : BaseViewModel(application) {
-
-    private val authRepository: AuthRepositoryImpl by lazy {
-        AuthRepositoryImpl(
-            AuthNetSourceImpl(),
-            AuthMapper(),
-            TokenMapper()
-        )
-    }
+class AuthViewModel(application: Application, private val authRepository: AuthRepository) :
+    BaseViewModel(application) {
 
     fun auth(phoneNumber: String) {
         viewModelScope.launch(Dispatchers.IO) {

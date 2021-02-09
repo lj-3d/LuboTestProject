@@ -28,6 +28,10 @@ object AppDependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
 
 
+    const val kodein = "org.kodein.di:kodein-di:${Versions.kodein}"
+    const val kodeinAndroid = "org.kodein.di:kodein-di-framework-android-x:${Versions.kodein}"
+
+
     //data net
     const val retrofitClient = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
@@ -61,6 +65,7 @@ object AppDependencies {
 
     val applicationImplementationLibraries = arrayListOf<String>().apply {
         addAll(baseImplementationLibraries)
+        add(kodeinAndroid)
     }
 
     val localDataImplementationLibraries = arrayListOf<String>().apply {
@@ -80,6 +85,7 @@ object AppDependencies {
     }
 
     val presentationImplementationLibraries = arrayListOf<String>().apply {
+        add(kodeinAndroid)
         add(recyclerView)
         add(BRVAH)
     }

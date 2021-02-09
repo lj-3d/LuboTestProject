@@ -6,7 +6,7 @@ import com.lubo.base.network.auth.AuthNetSource
 import com.lubo.impl.network.auth.AuthMapper
 import com.lubo.impl.network.auth.TokenMapper
 
-class AuthRepositoryImpl(
+internal class AuthRepositoryImpl(
     private val authNetSource: AuthNetSource,
     private val authMapper: AuthMapper,
     private val tokenMapper: TokenMapper
