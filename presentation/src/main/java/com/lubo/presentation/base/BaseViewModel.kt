@@ -7,4 +7,6 @@ abstract class BaseViewModel(app: Application) : AndroidViewModel(app) {
 
     protected val resources = app.resources
 
+
+
 }

@@ -28,7 +28,7 @@
             android:paddingRight="@dimen/offset_8">
 
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
                 android:id="@+id/btnSkip"
                 style="@style/BtnRegularPrimary"
                 android:layout_weight="1"

@@ -7,15 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lubo.presentation.adapter.OnboardingAdapter
 import com.lubo.presentation.base.BaseActivity
 import com.lubo.presentation.databinding.OnboardingActivityBinding
+import com.lubo.presentation.extension.provideViewBinding
 import com.lubo.presentation.extension.provideViewModel
 
-class OnboardingActivity :
-    BaseActivity<OnboardingViewModel, OnboardingViewModelFactory, OnboardingActivityBinding>() {
+class OnboardingActivity : BaseActivity<OnboardingViewModel>() {
 
-    override val viewModel: OnboardingViewModel by provideViewModel<OnboardingViewModel, OnboardingActivity>()
+    override val viewBinding by provideViewBinding(OnboardingActivityBinding::inflate)
+    override val viewModel: OnboardingViewModel by provideViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        viewBinding = OnboardingActivityBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
 
         viewBinding.apply {

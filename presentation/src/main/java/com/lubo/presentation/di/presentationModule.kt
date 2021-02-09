@@ -1,20 +1,20 @@
 package com.lubo.presentation.di
 
+import androidx.lifecycle.ViewModelProvider
 import com.lubo.presentation.auth.AuthViewModel
-import com.lubo.presentation.auth.AuthViewModelFactory
+import com.lubo.presentation.base.BaseViewModelFactory
+import com.lubo.presentation.extension.bindViewModel
 import com.lubo.presentation.onboarding.OnboardingViewModel
-import com.lubo.presentation.onboarding.OnboardingViewModelFactory
-import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.instance
-import org.kodein.di.provider
+import org.kodein.di.*
 
 val presentationModule = DI.Module("presentation") {
-    bind() from provider { OnboardingViewModelFactory(instance()) }
-    bind() from provider {
-        AuthViewModelFactory(
+    bindViewModel<OnboardingViewModel>() with provider { OnboardingViewModel(instance()) }
+    bindViewModel<AuthViewModel>() with provider { AuthViewModel(instance(), instance()) }
+
+    bind<ViewModelProvider.AndroidViewModelFactory>() with singleton {
+        BaseViewModelFactory(
             instance(),
-            instance()
+            di.direct
         )
     }
 }

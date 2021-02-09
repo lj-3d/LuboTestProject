@@ -4,10 +4,10 @@
 
     <font
             android:font="@font/pragmatica"
-            android:fontWeight="700"
+            android:fontWeight="400"
             android:fontStyle="normal"
             app:font="@font/pragmatica"
-            app:fontWeight="700"
+            app:fontWeight="400"
             app:fontStyle="normal" />
 
 </font-family>

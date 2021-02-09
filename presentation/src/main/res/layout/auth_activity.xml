@@ -28,13 +28,13 @@
             android:paddingRight="@dimen/offset_8">
 
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
                 android:id="@+id/btnSkip"
                 style="@style/BtnRegularPrimary"
                 android:layout_weight="1"
                 android:text="@string/btn_skip" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
                 android:id="@+id/btnContinue"
                 style="@style/BtnRegularSecondary"
                 android:layout_weight="1"
