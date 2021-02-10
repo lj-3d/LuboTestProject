@@ -13,13 +13,25 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="44dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvOnboarding"
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_onboarding"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOnboarding"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_onboarding" />
+
+        <com.lubo.presentation.custom.BubbleIndicator
+                android:layout_width="10dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/offset_24"
+                android:layout_height="match_parent" />
+
+    </FrameLayout>
 
     <LinearLayout
             style="@style/LLHMatchWrap"

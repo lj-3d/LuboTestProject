@@ -4,5 +4,6 @@ plugins {
 
 
 dependencies {
+    implementation(AppDependencies.kodein)
     implementation(AppDependencies.networkDataImplementationLibraries)
 }

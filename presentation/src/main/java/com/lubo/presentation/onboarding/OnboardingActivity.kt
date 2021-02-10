@@ -1,13 +1,12 @@
 package com.lubo.presentation.onboarding
 
 import android.os.Bundle
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.lubo.presentation.R
 import com.lubo.presentation.adapter.OnboardingAdapter
 import com.lubo.presentation.base.BaseActivity
+import com.lubo.presentation.custom.BubbleIndicator
 import com.lubo.presentation.databinding.OnboardingActivityBinding
 import com.lubo.presentation.extension.provideViewBinding
 import com.lubo.presentation.extension.provideViewModel
@@ -21,7 +20,6 @@ class OnboardingActivity : BaseActivity<OnboardingViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewBinding.apply {
 //            val tapeFace = ResourcesCompat.getFont(this@OnboardingActivity, R.font.montserrat_black)
 //            tapeFace.apply {
@@ -29,7 +27,7 @@ class OnboardingActivity : BaseActivity<OnboardingViewModel>() {
 //                btnSkip.typeface = this
 //            }
             btnContinue.isEnabled = true
-            btnSkip.isEnabled = false
+            btnSkip.isEnabled = true
 
             rvOnboarding.apply {
                 layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)

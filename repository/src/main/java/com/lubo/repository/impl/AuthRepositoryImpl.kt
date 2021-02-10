@@ -1,4 +1,4 @@
-package com.lubo.repository.impl.auth
+package com.lubo.repository.impl
 
 import com.lubo.repository.base.AuthRepository
 import com.lubo.base.network.ApiResult
