@@ -19,8 +19,10 @@
     <dimen name="offset_46">46dp</dimen>
     <dimen name="offset_48">48dp</dimen>
 
-    <dimen name="txt_normal_size">16sp</dimen>
-    <dimen name="txt_big_size">18sp</dimen>
+    <dimen name="txt_size_16">16sp</dimen>
+    <dimen name="txt_size_18">18sp</dimen>
+    <dimen name="txt_size_20">20sp</dimen>
+    <dimen name="txt_size_24">24sp</dimen>
 
     <dimen name="btn_height">52dp</dimen>
     <dimen name="btn_corner_radius">50dp</dimen>

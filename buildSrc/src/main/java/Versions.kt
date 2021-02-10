@@ -4,7 +4,7 @@ object Versions {
     const val kotlin = "1.4.0"
 
     // base
-    const val coreKtx = "1.2.0"
+    const val coreKtx = "1.3.2"
 
     // core
     const val lifeCycle = "2.2.0"

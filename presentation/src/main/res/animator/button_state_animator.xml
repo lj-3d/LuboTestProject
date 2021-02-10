@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="true">
-        <set>
-            <objectAnimator
-                    android:propertyName="alpha"
-                    android:valueTo="1.0"
-                    android:duration="100"
-                    android:valueType="floatType" />
-        </set>
-    </item>
-    <item android:state_enabled="false">
-        <set>
-            <objectAnimator
-                    android:propertyName="alpha"
-                    android:duration="100"
-                    android:valueTo="0.4"
-                    android:valueType="floatType" />
-        </set>
-    </item>
+<!--    <item android:state_enabled="true">-->
+<!--        <set>-->
+<!--            <objectAnimator-->
+<!--                    android:propertyName="alpha"-->
+<!--                    android:valueTo="1.0"-->
+<!--                    android:duration="100"-->
+<!--                    android:valueType="floatType" />-->
+<!--        </set>-->
+<!--    </item>-->
+<!--    <item android:state_enabled="false">-->
+<!--        <set>-->
+<!--            <objectAnimator-->
+<!--                    android:propertyName="alpha"-->
+<!--                    android:duration="100"-->
+<!--                    android:valueTo="0.4"-->
+<!--                    android:valueType="floatType" />-->
+<!--        </set>-->
+<!--    </item>-->
     <item android:state_pressed="true">
         <set>
             <objectAnimator

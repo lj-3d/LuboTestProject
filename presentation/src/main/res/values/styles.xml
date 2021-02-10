@@ -39,18 +39,27 @@
     <style name="TxtRegular" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/txt_normal_size</item>
+        <item name="android:textSize">@dimen/txt_size_16</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:fontFamily">@font/cc_pragmatica_regular</item>
+        <item name="fontFamily">@font/cc_pragmatica_regular</item>
+    </style>
+
+    <style name="TxtMedium" parent="TxtRegular">
+        <item name="android:textSize">@dimen/txt_size_16</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/cc_pragmatica_medium</item>
+        <item name="fontFamily">@font/cc_pragmatica_medium</item>
     </style>
 
     <style name="TxtBold" parent="TxtRegular">
-        <item name="android:textSize">@dimen/txt_big_size</item>
+        <item name="android:textSize">@dimen/txt_size_16</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:fontFamily">@font/cc_pragmatica_bold</item>
+        <item name="fontFamily">@font/cc_pragmatica_bold</item>
     </style>
 
-    <style name="BtnRegularPrimary" parent="TxtRegular">
+    <style name="BtnRegularPrimary" parent="TxtMedium">
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
         <item name="android:textColor">@color/txt_white</item>
@@ -59,7 +68,7 @@
         <item name="android:stateListAnimator">@animator/button_state_animator</item>
     </style>
 
-    <style name="BtnRegularSecondary" parent="TxtRegular">
+    <style name="BtnRegularSecondary" parent="TxtMedium">
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
         <item name="android:textColor">@color/txt_white</item>

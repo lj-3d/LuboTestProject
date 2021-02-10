@@ -3,10 +3,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <font
-            android:font="@font/pragmatica"
+            android:font="@font/pragmatica_bold"
             android:fontWeight="700"
             android:fontStyle="normal"
-            app:font="@font/pragmatica"
+            app:font="@font/pragmatica_bold"
             app:fontWeight="700"
             app:fontStyle="normal" />
 
