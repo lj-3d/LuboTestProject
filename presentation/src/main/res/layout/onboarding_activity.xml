@@ -26,7 +26,8 @@
                 tools:listitem="@layout/item_onboarding" />
 
         <com.lubo.presentation.custom.BubbleIndicator
-                android:layout_width="10dp"
+                android:id="@+id/bubbleIndicator"
+                android:layout_width="@dimen/offset_6"
                 android:layout_gravity="right"
                 android:layout_marginRight="@dimen/offset_24"
                 android:layout_height="match_parent" />

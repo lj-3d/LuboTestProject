@@ -32,7 +32,10 @@ class OnboardingActivity : BaseActivity<OnboardingViewModel>() {
             rvOnboarding.apply {
                 layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
                 adapter = OnboardingAdapter(viewModel.getOnboardingData())
-                PagerSnapHelper().attachToRecyclerView(this)
+                PagerSnapHelper().also {
+                    it.attachToRecyclerView(this)
+                    bubbleIndicator.attachRecyclerView(this, it)
+                }
             }
         }
     }

@@ -33,6 +33,18 @@ class OnboardingViewModel(application: Application) : BaseViewModel(application)
                     resources.getString(R.string.onboarding_message_4)
                 )
             )
+            add(
+                OnboardingItem(
+                    R.drawable.img_onboarding_4,
+                    resources.getString(R.string.onboarding_message_4)
+                )
+            )
+            add(
+                OnboardingItem(
+                    R.drawable.img_onboarding_4,
+                    resources.getString(R.string.onboarding_message_4)
+                )
+            )
         }
     }
 
