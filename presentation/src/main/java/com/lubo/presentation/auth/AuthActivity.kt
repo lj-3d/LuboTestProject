@@ -1,10 +1,12 @@
 package com.lubo.presentation.auth
 
 import android.os.Bundle
+import android.util.Log
+import androidx.core.view.marginBottom
+import com.lubo.core.listener.KeyBoardState
 import com.lubo.presentation.base.BaseActivity
 import com.lubo.presentation.databinding.AuthActivityBinding
-import com.lubo.presentation.extension.provideViewBinding
-import com.lubo.presentation.extension.provideViewModel
+import com.lubo.presentation.extension.*
 
 class AuthActivity : BaseActivity<AuthViewModel>() {
 
@@ -19,8 +21,22 @@ class AuthActivity : BaseActivity<AuthViewModel>() {
         viewModel.auth("278732783782378")
 
         viewBinding.apply {
-            llRegister.setOnClickListener { btnContinue.isEnabled = !btnContinue.isEnabled }
+
+            llPhoneNumber.setOnClickListener { edTxtPhoneNumber.showKeyboard() }
+            val lastBottomMargin = btnContinue.marginBottom
+            setOnKeyboardChangeListener { state, keyboardHeight ->
+                when (state) {
+                    KeyBoardState.OPENED -> {
+                        btnContinue.setBottomMargin(keyboardHeight)
+                    }
+                    KeyBoardState.CLOSED -> {
+                        btnContinue.setBottomMargin(lastBottomMargin)
+                    }
+                }
+            }
         }
+
+
     }
 
 }

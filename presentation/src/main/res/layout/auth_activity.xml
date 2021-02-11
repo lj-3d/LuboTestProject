@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         style="@style/LLVWMatchMatch">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -14,14 +15,13 @@
             app:lineHeight="@dimen/offset_32" />
 
     <LinearLayout
-            android:id="@+id/llRegister"
+            android:id="@+id/llPhoneNumber"
             style="@style/LLHMatchWrap"
             android:padding="@dimen/offset_16"
             android:layout_marginStart="@dimen/offset_16"
             android:layout_marginEnd="@dimen/offset_16"
             android:gravity="center_vertical"
             android:layout_height="@dimen/btn_height"
-            android:clickable="true"
             android:background="@drawable/primary_rounded_button">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -30,27 +30,34 @@
                 android:drawablePadding="@dimen/offset_6"
                 android:text="@string/phone_prefix" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-                style="@style/TxtRegular"
+        <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edTxtPhoneNumber"
+                style="@style/EdTxtRegular"
                 android:layout_width="match_parent"
                 android:textColor="@color/white_40"
                 android:textColorHint="@color/white_40"
                 android:layout_marginStart="@dimen/offset_8"
-                android:maxEms="11"
-                android:maxLength="11"
+                android:maxLength="12"
+                tools:text="050 259 6124"
                 android:hint="@string/txt_phone_number" />
 
     </LinearLayout>
 
-    <com.lubo.presentation.custom.LuboButton
-            android:id="@+id/btnContinue"
+    <FrameLayout
             android:layout_width="match_parent"
-            style="@style/BtnSingle"
-            android:layout_marginBottom="@dimen/offset_24"
-            android:layout_marginTop="@dimen/offset_24"
-            android:layout_marginStart="@dimen/offset_16"
-            android:layout_marginEnd="@dimen/offset_16"
-            android:text="@string/btn_skip" />
+            android:layout_height="match_parent">
 
+        <com.lubo.presentation.custom.LuboButton
+                android:id="@+id/btnContinue"
+                android:layout_width="match_parent"
+                style="@style/BtnSingle"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/offset_24"
+                android:layout_marginTop="@dimen/offset_24"
+                android:layout_marginStart="@dimen/offset_16"
+                android:layout_marginEnd="@dimen/offset_16"
+                android:text="@string/btn_skip" />
+
+    </FrameLayout>
 
 </LinearLayout>

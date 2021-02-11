@@ -10,6 +10,11 @@
                     android:duration="100" />
 
             <objectAnimator
+                    android:propertyName="customTextColor"
+                    android:valueTo="@color/white"
+                    android:duration="100" />
+
+            <objectAnimator
                     android:duration="100"
                     android:propertyName="scaleX"
                     android:valueTo="0.9"
@@ -29,6 +34,11 @@
             <objectAnimator
                     android:propertyName="customTintBackground"
                     android:valueTo="@color/btn_secondary_color"
+                    android:duration="100" />
+
+            <objectAnimator
+                    android:propertyName="customTextColor"
+                    android:valueTo="@color/white"
                     android:duration="100" />
 
             <objectAnimator
@@ -54,6 +64,11 @@
                     android:duration="100" />
 
             <objectAnimator
+                    android:propertyName="customTextColor"
+                    android:valueTo="@color/white_40"
+                    android:duration="100" />
+
+            <objectAnimator
                     android:duration="100"
                     android:propertyName="scaleX"
                     android:valueTo="1"
@@ -74,6 +89,11 @@
                     android:duration="100" />
 
             <objectAnimator
+                    android:propertyName="customTextColor"
+                    android:valueTo="@color/white_40"
+                    android:duration="100" />
+
+            <objectAnimator
                     android:duration="100"
                     android:propertyName="scaleX"
                     android:valueTo="1"
@@ -84,7 +104,6 @@
                     android:propertyName="scaleY"
                     android:valueTo="1"
                     android:valueType="floatType" />
-
         </set>
     </item>
 </selector>

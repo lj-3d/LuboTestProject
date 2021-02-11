@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="@dimen/btn_corner_radius" />
-    <size android:height="@dimen/btn_height" />
-    <solid android:color="@color/btn_secondary_color" />
-</shape>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="@android:color/white">
+    <item>
+        <shape>
+            <corners android:radius="@dimen/btn_corner_radius" />
+            <size android:height="@dimen/btn_height" />
+            <solid android:color="@color/btn_secondary_color" />
+        </shape>
+    </item>
+</ripple>

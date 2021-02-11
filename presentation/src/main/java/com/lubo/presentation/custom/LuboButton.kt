@@ -23,4 +23,10 @@ class LuboButton @JvmOverloads constructor(
             backgroundTintList = ColorStateList.valueOf(value)
             field = value
         }
+
+    var customTextColor: Int = textColors?.defaultColor ?: R.color.white_40
+        set(value) {
+            setTextColor(value)
+            field = value
+        }
 }
