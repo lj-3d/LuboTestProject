@@ -1,6 +1,6 @@
-package com.lubo.repository.base
+package com.lubo.local.base
 
-interface OnboardingRepository {
+interface GeneralSettingsLocalSource {
 
     fun shouldShowOnboarding(): Boolean
 

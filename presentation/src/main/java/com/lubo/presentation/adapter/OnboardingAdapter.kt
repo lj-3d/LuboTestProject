@@ -2,20 +2,18 @@ package com.lubo.presentation.adapter
 
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.appcompat.widget.AppCompatTextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.lubo.presentation.R
-import com.lubo.repository.model.OnboardingItem
-import org.w3c.dom.Text
+import com.lubo.core.model.OnboardingModel
 
-class OnboardingAdapter(val onboardingItems: MutableList<OnboardingItem>) :
-    BaseQuickAdapter<OnboardingItem, BaseViewHolder>(R.layout.item_onboarding, onboardingItems) {
+class OnboardingAdapter(val onboardingModels: MutableList<OnboardingModel>) :
+    BaseQuickAdapter<OnboardingModel, BaseViewHolder>(R.layout.item_onboarding, onboardingModels) {
 
-    override fun convert(holder: BaseViewHolder, item: OnboardingItem) {
+    override fun convert(holder: BaseViewHolder, model: OnboardingModel) {
         with(holder) {
-            getView<AppCompatImageView>(R.id.imgOnboarding).setImageResource(item.imgResource)
-            getView<TextView>(R.id.txtOnboarding).text = item.description
+            getView<AppCompatImageView>(R.id.imgOnboarding).setImageResource(model.imgResource)
+            getView<TextView>(R.id.txtOnboarding).text = model.description
         }
     }
 

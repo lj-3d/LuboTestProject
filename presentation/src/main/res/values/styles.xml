@@ -36,11 +36,12 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="TxtRegular" parent="Widget.AppCompat.TextView">
+    <style name="TxtRegular">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/txt_size_16</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/txt_white</item>
         <item name="android:fontFamily">@font/cc_pragmatica_regular</item>
         <item name="fontFamily">@font/cc_pragmatica_regular</item>
     </style>
@@ -59,22 +60,29 @@
         <item name="fontFamily">@font/cc_pragmatica_bold</item>
     </style>
 
+    <style name="BtnSingle" parent="TxtMedium">
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:stateListAnimator">@animator/button_active_state_animator</item>
+    </style>
+
     <style name="BtnRegularPrimary" parent="TxtMedium">
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
-        <item name="android:textColor">@color/txt_white</item>
-        <item name="android:layout_margin">@dimen/offset_8</item>
-        <item name="android:background">@drawable/primary_rounded_button</item>
-        <item name="android:stateListAnimator">@animator/button_state_animator</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="backgroundTint">@color/btn_primary_color</item>
+        <item name="android:backgroundTint">@color/btn_primary_color</item>
+        <item name="android:stateListAnimator">@animator/button_click_state_animator</item>
     </style>
 
     <style name="BtnRegularSecondary" parent="TxtMedium">
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
-        <item name="android:textColor">@color/txt_white</item>
-        <item name="android:layout_margin">@dimen/offset_8</item>
-        <item name="android:background">@drawable/secondary_rounded_button</item>
-        <item name="android:stateListAnimator">@animator/button_state_animator</item>
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="backgroundTint">@color/btn_secondary_color</item>
+        <item name="android:backgroundTint">@color/btn_secondary_color</item>
+        <item name="android:stateListAnimator">@animator/button_click_state_animator</item>
     </style>
 
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:state_pressed="true"
+            android:state_enabled="true">
+        <set>
+            <objectAnimator
+                    android:propertyName="customTintBackground"
+                    android:valueTo="@color/btn_secondary_color"
+                    android:duration="100" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleX"
+                    android:valueTo="0.9"
+                    android:valueType="floatType" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleY"
+                    android:valueTo="0.9"
+                    android:valueType="floatType" />
+        </set>
+    </item>
+    <item
+            android:state_pressed="false"
+            android:state_enabled="true">
+        <set>
+            <objectAnimator
+                    android:propertyName="customTintBackground"
+                    android:valueTo="@color/btn_secondary_color"
+                    android:duration="100" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleX"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleY"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+        </set>
+    </item>
+    <item
+            android:state_pressed="true"
+            android:state_enabled="false">
+        <set>
+            <objectAnimator
+                    android:propertyName="customTintBackground"
+                    android:valueTo="@color/btn_primary_color"
+                    android:duration="100" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleX"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleY"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+        </set>
+    </item>
+    <item>
+        <set>
+            <objectAnimator
+                    android:propertyName="customTintBackground"
+                    android:valueTo="@color/btn_primary_color"
+                    android:duration="100" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleX"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+
+            <objectAnimator
+                    android:duration="100"
+                    android:propertyName="scaleY"
+                    android:valueTo="1"
+                    android:valueType="floatType" />
+
+        </set>
+    </item>
+</selector>

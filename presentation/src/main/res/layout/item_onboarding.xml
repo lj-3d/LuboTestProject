@@ -16,7 +16,6 @@
             style="@style/TxtBold"
             android:textSize="@dimen/txt_size_18"
             android:layout_marginTop="@dimen/offset_24"
-            android:textColor="@color/txt_white"
             tools:text="@string/onboarding_message_1" />
 
 </LinearLayout>

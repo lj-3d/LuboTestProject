@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">LuboTestProject</string>
 
+
+    <!--  Onboarding Flow  -->
     <string name="btn_skip">Пропустити</string>
     <string name="btn_continue">Продовжити</string>
-
     <string name="onboarding_message_1">Підвищуй кваліфікацію</string>
     <string name="onboarding_message_2">Плануй відпустку</string>
     <string name="onboarding_message_3">Вся інформація в одному місці</string>
     <string name="onboarding_message_4">Будь в курсі подій</string>
+
+    <!--  Auth Flow  -->
+    <string name="register">Реєстрація</string>
+    <string name="phone_prefix">+380</string>
+    <string name="txt_phone_number">Номер телефону</string>
+
 </resources>

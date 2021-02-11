@@ -1,18 +1,14 @@
 package com.lubo.repository.impl
 
-import com.lubo.local.base.UserProfileLocalSource
+import com.lubo.local.base.GeneralSettingsLocalSource
 import com.lubo.repository.base.OnboardingRepository
-import com.lubo.repository.model.OnboardingItem
 
-internal class OnboardingRepositoryImpl(private val userProfileLocalSource: UserProfileLocalSource) :
-    OnboardingRepository {
+internal class OnboardingRepositoryImpl(
+    private val generalSettingsLocalSource: GeneralSettingsLocalSource
+) : OnboardingRepository {
 
-    override fun getOnboardingData(): MutableList<OnboardingItem> {
-        return mutableListOf()
-    }
+    override fun shouldShowOnboarding() = generalSettingsLocalSource.shouldShowOnboarding()
 
-    override fun endOnboarding() {
-        userProfileLocalSource.getToken()
-    }
+    override fun endOnboarding() = generalSettingsLocalSource.endOnboarding()
 
 }

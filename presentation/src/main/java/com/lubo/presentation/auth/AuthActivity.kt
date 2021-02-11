@@ -17,6 +17,10 @@ class AuthActivity : BaseActivity<AuthViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.auth("278732783782378")
+
+        viewBinding.apply {
+            llRegister.setOnClickListener { btnContinue.isEnabled = !btnContinue.isEnabled }
+        }
     }
 
 }

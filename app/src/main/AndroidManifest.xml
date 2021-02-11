@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.lubo.presentation.auth.AuthActivity" />
+
     </application>
 
 </manifest>

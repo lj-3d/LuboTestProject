@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!--    Hex Opacity Hint-->
+<!--    0% = #00-->
+<!--    10% = #16-->
+<!--    20% = #32-->
+<!--    30% = #48-->
+<!--    40% = #64-->
+<!--    50% = #80-->
+<!--    60% = #96-->
+<!--    70% = #112-->
+<!--    80% = #128-->
+<!--    90% = #144-->
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
@@ -14,4 +26,5 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="white_20">#32FFFFFF</color>
+    <color name="white_40">#64FFFFFF</color>
 </resources>

@@ -38,19 +38,21 @@
             style="@style/LLHMatchWrap"
             android:paddingTop="@dimen/offset_16"
             android:paddingBottom="@dimen/offset_16"
-            android:paddingLeft="@dimen/offset_8"
-            android:paddingRight="@dimen/offset_8">
+            android:paddingStart="@dimen/offset_8"
+            android:paddingEnd="@dimen/offset_8">
 
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnSkip"
                 style="@style/BtnRegularPrimary"
                 android:layout_weight="1"
+                android:layout_margin="@dimen/offset_8"
                 android:text="@string/btn_skip" />
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnContinue"
                 style="@style/BtnRegularSecondary"
+                android:layout_margin="@dimen/offset_8"
                 android:layout_weight="1"
                 android:text="@string/btn_continue" />
 

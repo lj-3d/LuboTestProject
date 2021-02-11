@@ -8,7 +8,12 @@ import com.lubo.presentation.onboarding.OnboardingViewModel
 import org.kodein.di.*
 
 val presentationModule = DI.Module("presentation") {
-    bindViewModel<OnboardingViewModel>() with provider { OnboardingViewModel(instance()) }
+    bindViewModel<OnboardingViewModel>() with provider {
+        OnboardingViewModel(
+            instance(),
+            instance()
+        )
+    }
     bindViewModel<AuthViewModel>() with provider { AuthViewModel(instance(), instance()) }
 
     bind<ViewModelProvider.AndroidViewModelFactory>() with singleton {

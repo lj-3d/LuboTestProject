@@ -1,45 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/LLVWMatchMatch">
 
-    <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_img_logo"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="44dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvOnboarding"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_onboarding"
-            android:layout_weight="1" />
+    <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TxtBold"
+            android:textSize="@dimen/txt_size_24"
+            android:text="@string/register"
+            android:layout_marginStart="@dimen/offset_16"
+            android:layout_marginEnd="@dimen/offset_16"
+            android:layout_marginTop="@dimen/offset_28"
+            android:layout_marginBottom="@dimen/offset_34"
+            app:lineHeight="@dimen/offset_32" />
 
     <LinearLayout
+            android:id="@+id/llRegister"
             style="@style/LLHMatchWrap"
-            android:paddingTop="@dimen/offset_16"
-            android:paddingBottom="@dimen/offset_16"
-            android:paddingLeft="@dimen/offset_8"
-            android:paddingRight="@dimen/offset_8">
+            android:padding="@dimen/offset_16"
+            android:layout_marginStart="@dimen/offset_16"
+            android:layout_marginEnd="@dimen/offset_16"
+            android:gravity="center_vertical"
+            android:layout_height="@dimen/btn_height"
+            android:clickable="true"
+            android:background="@drawable/primary_rounded_button">
 
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TxtMedium"
+                android:drawableStart="@drawable/img_ua_flag"
+                android:drawablePadding="@dimen/offset_6"
+                android:text="@string/phone_prefix" />
 
-        <TextView
-                android:id="@+id/btnSkip"
-                style="@style/BtnRegularPrimary"
-                android:layout_weight="1"
-                android:text="@string/btn_skip" />
-
-        <TextView
-                android:id="@+id/btnContinue"
-                style="@style/BtnRegularSecondary"
-                android:layout_weight="1"
-                android:text="@string/btn_continue" />
+        <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TxtRegular"
+                android:layout_width="match_parent"
+                android:textColor="@color/white_40"
+                android:textColorHint="@color/white_40"
+                android:layout_marginStart="@dimen/offset_8"
+                android:maxEms="11"
+                android:maxLength="11"
+                android:hint="@string/txt_phone_number" />
 
     </LinearLayout>
+
+    <com.lubo.presentation.custom.LuboButton
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            style="@style/BtnSingle"
+            android:layout_marginBottom="@dimen/offset_24"
+            android:layout_marginTop="@dimen/offset_24"
+            android:layout_marginStart="@dimen/offset_16"
+            android:layout_marginEnd="@dimen/offset_16"
+            android:text="@string/btn_skip" />
+
 
 </LinearLayout>
