@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">core</string>
+
+
+    <string-array name="ua_operators">
+        <item>39</item>
+        <item>67</item>
+        <item>96</item>
+        <item>97</item>
+        <item>98</item>
+        <item>50</item>
+        <item>66</item>
+        <item>95</item>
+        <item>99</item>
+        <item>63</item>
+        <item>93</item>
+        <item>91</item>
+        <item>92</item>
+        <item>94</item>
+    </string-array>
 </resources>

@@ -71,6 +71,12 @@
         <item name="fontFamily">@font/cc_pragmatica_regular</item>
     </style>
 
+    <style name="EdTxtPhone" parent="EdTxtRegular">
+        <item name="android:inputType">phone</item>
+        <item name="android:maxLength">11</item>
+        <item name="android:digits">0123456789+</item>
+    </style>
+
     <style name="BtnSingle" parent="TxtMedium">
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>

@@ -1,7 +1,6 @@
 package com.lubo.presentation.auth
 
 import android.os.Bundle
-import android.util.Log
 import androidx.core.view.marginBottom
 import com.lubo.core.listener.KeyBoardState
 import com.lubo.presentation.base.BaseActivity
@@ -21,7 +20,7 @@ class AuthActivity : BaseActivity<AuthViewModel>() {
         viewModel.auth("278732783782378")
 
         viewBinding.apply {
-
+            btnContinue.isEnabled = false
             llPhoneNumber.setOnClickListener { edTxtPhoneNumber.showKeyboard() }
             val lastBottomMargin = btnContinue.marginBottom
             setOnKeyboardChangeListener { state, keyboardHeight ->
@@ -34,9 +33,10 @@ class AuthActivity : BaseActivity<AuthViewModel>() {
                     }
                 }
             }
+            edTxtPhoneNumber.attachPhoneFormatter()
+            edTxtPhoneNumber.attachPhoneValidator { isPhoneValid: Boolean ->
+                btnContinue.isEnabled = isPhoneValid
+            }
         }
-
-
     }
-
 }

@@ -32,13 +32,12 @@
 
         <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/edTxtPhoneNumber"
-                style="@style/EdTxtRegular"
+                style="@style/EdTxtPhone"
                 android:layout_width="match_parent"
-                android:textColor="@color/white_40"
+                android:textColor="@color/white"
                 android:textColorHint="@color/white_40"
                 android:layout_marginStart="@dimen/offset_8"
-                android:maxLength="12"
-                tools:text="050 259 6124"
+                tools:text="50 259 6124"
                 android:hint="@string/txt_phone_number" />
 
     </LinearLayout>
