@@ -21,6 +21,7 @@ import org.kodein.di.DIAware
 import org.kodein.di.bind
 import org.kodein.di.direct
 import org.kodein.di.instance
+import kotlin.math.min
 
 
 inline fun <reified VM : AndroidViewModel> Builder.bindViewModel(override: Boolean = false): TypeBinder<VM> {
@@ -71,47 +72,69 @@ fun EditText.attachPhoneFormatter() {
     val editModeId = R.id.editModeId
     val previousLengthId = R.id.previousLengthId
     addTextChangedListener(
-        { text, start, count, after ->
+        { _, start, _, _ ->
             setTag(previousLengthId, start)
         },
         { _, _, _, _ ->
+
         },
         {
-            val phone = StringBuilder(it?.toString()?.replace(" ", "") ?: "")
-            phone.apply {
-                var inEditMode: Boolean = getTag(editModeId) as? Boolean ?: false
+            val beginZeroRegex = "^0+".toRegex()
+            val phone = (it?.toString()?.replace(" ", "") ?: "")
+            val phoneZeroFormatted = phone.replace(beginZeroRegex, "")
+            val phoneBuilder = StringBuilder(phoneZeroFormatted)
+            phoneBuilder.apply {
+                val inEditMode: Boolean = getTag(editModeId) as? Boolean ?: false
                 val previousLength: Int = getTag(previousLengthId) as Int
-                if (length in 3..5 && !inEditMode && length >= previousLength) {
-                    setTag(editModeId, true)
-                    phone.insert(2, " ")
-                    it?.clear()
-                    it?.append(phone)
-                    setText(phone)
-                    setSelection(phone.length)
-                    setTag(editModeId, false)
-                }
-                if (length >= 6 && !inEditMode && length >= previousLength) {
-                    setTag(editModeId, true)
-                    if (phone[2] != ' ')
-                        phone.insert(2, " ")
-                    phone.insert(6, " ")
-                    it?.clear()
-                    it?.append(phone)
-                    setText(phone)
-                    setSelection(phone.length)
-                    setTag(editModeId, false)
+                if (!inEditMode) {
+                    if (matches(beginZeroRegex) || phone.matches(beginZeroRegex)) {
+                        onEditPhone {
+                            setText(replace(beginZeroRegex, ""))
+                        }
+                    }
+                    if (length in 3..5 && length >= previousLength) {
+                        onEditPhone {
+                            insert(2, " ")
+                            setText(this)
+                            setSelection(
+                                min(
+                                    length,
+                                    this@attachPhoneFormatter.length()
+                                )
+                            )
+                        }
+                    }
+                    if (length >= 6 && length >= previousLength) {
+                        onEditPhone {
+                            if (this[2] != ' ')
+                                insert(2, " ")
+                            insert(6, " ")
+                            setText(this)
+                            setSelection(
+                                min(
+                                    length,
+                                    this@attachPhoneFormatter.length()
+                                )
+                            )
+                        }
+                    }
                 }
             }
         })
 }
 
+fun EditText.onEditPhone(onEditPhone: () -> Unit) {
+    val editModeId = R.id.editModeId
+    setTag(editModeId, true)
+    onEditPhone()
+    setTag(editModeId, false)
+}
+
 fun EditText.attachPhoneValidator(validatingResult: (Boolean) -> Unit) {
     addTextChangedListener {
-        var phone = it?.toString()?.replace(" ", "") ?: ""
+        val phone = it?.toString()?.replace(" ", "") ?: ""
         val operatorsRegex =
-            context.resources.getStringArray(R.array.ua_operators).let { operators ->
-                operators.joinToString("|")
-            }
+            context.resources.getStringArray(R.array.ua_operators).joinToString("|")
         val validator = "^\\d*($operatorsRegex)\\d{7}"
         validatingResult(phone.matches(validator.toRegex()))
     }

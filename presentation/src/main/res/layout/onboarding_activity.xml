@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_img_logo"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="44dp" />
+            android:layout_marginTop="@dimen/offset_44" />
 
     <FrameLayout
             android:layout_width="match_parent"
