@@ -6,13 +6,13 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
-    <style name="LLHWWrapMatch">
+    <style name="LLHWrapMatch">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">horizontal</item>
     </style>
 
-    <style name="LLHWMatchMatch">
+    <style name="LLHMatchMatch">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">horizontal</item>
@@ -30,7 +30,7 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="LLVWMatchMatch">
+    <style name="LLVMatchMatch">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
@@ -102,5 +102,20 @@
         <item name="android:stateListAnimator">@animator/button_click_state_animator</item>
     </style>
 
+    <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
 
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/offset_16</item>
+        <item name="cornerSizeTopLeft">@dimen/offset_16</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="backgroundColor">@color/white_40</item>
+    </style>
 </resources>

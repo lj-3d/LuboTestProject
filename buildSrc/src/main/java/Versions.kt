@@ -27,6 +27,7 @@ object Versions {
     const val constraintLayout = "2.0.0-beta8"
     const val recyclerview = "1.1.0"
     const val brvah = "3.0.4"
+    const val material = "1.3.0"
 
     // DI
     const val kodein = "7.3.0"

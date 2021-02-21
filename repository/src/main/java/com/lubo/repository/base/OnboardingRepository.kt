@@ -1,6 +1,6 @@
 package com.lubo.repository.base
 
-interface OnboardingRepository {
+interface OnboardingRepository : BaseRepository {
 
     fun shouldShowOnboarding(): Boolean
 

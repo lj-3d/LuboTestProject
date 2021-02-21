@@ -4,9 +4,12 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
 import com.lubo.core.listener.KeyBoardState
 import com.lubo.core.listener.KeyboardStateListener
+import com.lubo.presentation.R
+import kotlinx.android.synthetic.main.auth_activity.*
 import org.kodein.di.DIAware
 import org.kodein.di.android.closestDI
 
@@ -15,15 +18,19 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
 
     override val di by closestDI()
 
+    val errorDialogFragment by lazy {
+        ErrorDialogFragment()
+    }
+
     protected abstract val viewBinding: ViewBinding?
-    protected abstract val viewModel: AndroidVModel
+    abstract val viewModel: AndroidVModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding?.root)
     }
 
-    protected fun setOnKeyboardChangeListener(action: (state: KeyBoardState, keyboardHeight: Int) -> Unit) {
+    fun setOnKeyboardChangeListener(action: (state: KeyBoardState, keyboardHeight: Int) -> Unit) {
         val listener = object : KeyboardStateListener {
             override fun onKeyboardStateChange(keyBoardState: KeyBoardState, keyboardHeight: Int) {
                 action(keyBoardState, keyboardHeight)
@@ -34,7 +41,7 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
 
     private fun attachKeyboardChangeListener(keyboardStateListener: KeyboardStateListener) {
         // Threshold for minimal keyboard height.
-        val MIN_KEYBOARD_HEIGHT_PX = 150
+        val minKeyboardHeightPx = 150
         val decorView = this.window.decorView
         decorView.viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
             private val windowVisibleDisplayFrame: Rect = Rect()
@@ -46,7 +53,7 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
 
                 // Decide whether keyboard is visible from changing decor view height.
                 if (lastVisibleDecorViewHeight != 0) {
-                    if (lastVisibleDecorViewHeight > visibleDecorViewHeight + MIN_KEYBOARD_HEIGHT_PX) {
+                    if (lastVisibleDecorViewHeight > visibleDecorViewHeight + minKeyboardHeightPx) {
                         // Calculate current keyboard height (this includes also navigation bar height when in fullscreen mode).
                         val currentKeyboardHeight: Int =
                             decorView.height - windowVisibleDisplayFrame.bottom
@@ -55,7 +62,7 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
                             KeyBoardState.OPENED,
                             currentKeyboardHeight
                         )
-                    } else if (lastVisibleDecorViewHeight + MIN_KEYBOARD_HEIGHT_PX < visibleDecorViewHeight) {
+                    } else if (lastVisibleDecorViewHeight + minKeyboardHeightPx < visibleDecorViewHeight) {
                         // Notify listener about keyboard being hidden.
                         keyboardStateListener.onKeyboardStateChange(
                             KeyBoardState.CLOSED,
@@ -67,5 +74,45 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
                 lastVisibleDecorViewHeight = visibleDecorViewHeight
             }
         })
+    }
+
+    fun addFragment(fragmentPair: Pair<BaseFragment<*>, Bundle?>) {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentsContainer, fragmentPair.first.apply {
+                this.arguments = fragmentPair.second
+            }).commitAllowingStateLoss()
+
+    }
+
+    fun replaceFragment(fragmentPair: Pair<BaseFragment<*>, Bundle?>) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentsContainer, fragmentPair.first.apply {
+                this.arguments = fragmentPair.second
+            }).commitAllowingStateLoss()
+    }
+
+    fun popFragmentStack() {
+        supportFragmentManager.popBackStack()
+    }
+
+    fun popFragmentStackOrFinish() {
+        if (supportFragmentManager.backStackEntryCount == 0) {
+            finish()
+        } else {
+            supportFragmentManager.popBackStack()
+        }
+    }
+
+    fun showErrorDialog(title: String = "", message: String, onDismissClick: () -> Unit) {
+        if (errorDialogFragment.isVisible) {
+            errorDialogFragment.dismiss()
+        }
+        errorDialogFragment.setTitle(
+            if (title.isNullOrEmpty())
+                getString(R.string.error_title) else title
+        )
+        errorDialogFragment.setMessage(message)
+        errorDialogFragment.setOnDismissClick(onDismissClick)
+        errorDialogFragment.show(supportFragmentManager, errorDialogFragment::class.java.simpleName)
     }
 }

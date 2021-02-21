@@ -8,6 +8,7 @@ object AppDependencies {
     //android ui
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
@@ -21,6 +22,7 @@ object AppDependencies {
     const val viewModelSavedState =
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:${Versions.lifeCycle}"
     const val lifeCycleKapt = "androidx.lifecycle:lifecycle-compiler:${Versions.lifeCycle}"
+
 
     const val coroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
@@ -88,6 +90,7 @@ object AppDependencies {
         add(kodeinAndroid)
         add(recyclerView)
         add(BRVAH)
+        add(material)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {

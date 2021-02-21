@@ -20,6 +20,8 @@
     <!--  Base theme colors  -->
     <color name="primary_black">#080810</color>
     <color name="secondary_orange">#F6A016</color>
+    <color name="secondary_orange_50">#80F6A016</color>
+    <color name="transparent">#00000000</color>
 
     <color name="btn_primary_color">#37373D</color>
     <color name="btn_secondary_color">#F6A016</color>
@@ -27,4 +29,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_20">#32FFFFFF</color>
     <color name="white_40">#64FFFFFF</color>
+    <color name="primary_black_40">#64080810</color>
 </resources>

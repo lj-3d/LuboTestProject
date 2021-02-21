@@ -16,7 +16,6 @@ class AuthNetSourceImpl : AuthNetSource, BaseNetworkSource() {
     override suspend fun auth(phoneNumber: String): ApiResult<EmptyNetModel> {
         val json = JsonObject()
         json.addProperty("phoneNumber", phoneNumber)
-        println("api service -> $authService $json")
         return apiRequest { authService.authAsync(json.toString().toRequestBody()) }
 
     }

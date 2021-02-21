@@ -50,6 +50,14 @@ inline fun <reified VB : ViewBinding> AppCompatActivity.provideViewBinding(
     }
 }
 
+inline fun <reified VB : ViewBinding> Fragment.provideViewBinding(
+    crossinline bindingInflater: (LayoutInflater) -> VB
+): Lazy<VB> {
+    return lazy(LazyThreadSafetyMode.NONE) {
+        bindingInflater(LayoutInflater.from(activity?.applicationContext))
+    }
+}
+
 fun View.setBottomPadding(paddingBottom: Int) {
     setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
 }
@@ -66,6 +74,10 @@ fun EditText.showKeyboard() {
     val imm: InputMethodManager? =
         context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager?
     imm?.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+}
+
+fun EditText.getPhoneTextWithoutSpaces(): String {
+    return "+380" + text.toString().replace(" ", "")
 }
 
 fun EditText.attachPhoneFormatter() {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/LLVMatchWrap"
+        android:gravity="center_horizontal"
+        tools:viewBindingIgnore="true"
+        tools:background="@drawable/dialog_rounded_background">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/offset_24"
+            android:layout_marginBottom="@dimen/offset_16"
+            android:src="@drawable/ic_cloud_computing_svgrepo_com" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtErrorTitle"
+            style="@style/TxtMedium"
+            android:text="@string/error_title"
+            android:textSize="@dimen/txt_size_20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtErrorMessage"
+            style="@style/TxtMedium"
+            tools:text="Напишіть тут тіло помилки"
+            android:layout_marginTop="@dimen/offset_8"
+            android:textSize="@dimen/txt_size_16" />
+
+    <com.lubo.presentation.custom.LuboButton
+            android:id="@+id/btnUnderstood"
+            android:layout_width="match_parent"
+            style="@style/BtnSingle"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/offset_24"
+            android:layout_marginTop="@dimen/offset_24"
+            android:layout_marginStart="@dimen/offset_16"
+            android:layout_marginEnd="@dimen/offset_16"
+            android:text="@string/btn_understood" />
+</LinearLayout>

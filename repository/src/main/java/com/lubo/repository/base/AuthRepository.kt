@@ -1,6 +1,6 @@
 package com.lubo.repository.base
 
-interface AuthRepository {
+interface AuthRepository : BaseRepository {
 
     suspend fun auth(phoneNumber: String)
 
