@@ -8,11 +8,10 @@ import com.lubo.presentation.R
 import com.lubo.presentation.base.BaseFragment
 import com.lubo.presentation.databinding.RegisterFragmentBinding
 import com.lubo.presentation.extension.*
-import kotlinx.android.synthetic.main.register_fragment.*
 
 class RegisterFragment : BaseFragment<AuthViewModel>() {
 
-    override val viewBinding: ViewBinding by provideViewBinding {
+    override val viewBinding by provideViewBinding {
         RegisterFragmentBinding.inflate(it)
     }
 

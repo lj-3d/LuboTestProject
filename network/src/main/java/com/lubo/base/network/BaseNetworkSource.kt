@@ -9,22 +9,21 @@ abstract class BaseNetworkSource {
         val response: Response<T>
         try {
             response = call()
+            return if (response.isSuccessful) {
+                ApiResult.Success(
+                    response.code(),
+                    response.body()!!
+                )
+            } else {
+                ApiResult.Error(
+                    ApiException(
+                        response.code(),
+                        response.message()
+                    )
+                )
+            }
         } catch (exception: Exception) {
             return ApiResult.Error(exception)
-        }
-
-        return if (response.isSuccessful) {
-            ApiResult.Success(
-                response.code(),
-                response.body()!!
-            )
-        } else {
-            ApiResult.Error(
-                ApiException(
-                    response.code(),
-                    response.message()
-                )
-            )
         }
     }
 

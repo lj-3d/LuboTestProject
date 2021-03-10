@@ -10,7 +10,6 @@ import com.lubo.core.listener.KeyBoardState
 import com.lubo.presentation.R
 import com.lubo.presentation.custom.LuboToolbar
 import com.lubo.presentation.extension.provideViewModel
-import kotlinx.android.synthetic.main.auth_activity.*
 import org.kodein.di.DI
 import org.kodein.di.DIAware
 import org.kodein.di.android.x.closestDI

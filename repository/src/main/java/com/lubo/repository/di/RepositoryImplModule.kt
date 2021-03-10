@@ -28,6 +28,7 @@ val repositoryModule = DI.Module("repository") {
         AuthRepositoryImpl(
             instance(),
             instance(),
+            instance(),
             instance()
         )
     }

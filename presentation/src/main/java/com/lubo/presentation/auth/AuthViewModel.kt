@@ -11,7 +11,7 @@ class AuthViewModel(application: Application, private val authRepository: AuthRe
     BaseViewModel(application) {
 
     fun auth(phoneNumber: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             authRepository.auth(phoneNumber)
         }
     }

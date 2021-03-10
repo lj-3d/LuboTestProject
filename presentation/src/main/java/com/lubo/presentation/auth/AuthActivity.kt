@@ -1,9 +1,6 @@
 package com.lubo.presentation.auth
 
 import android.os.Bundle
-import androidx.core.view.marginBottom
-import com.lubo.core.listener.KeyBoardState
-import com.lubo.presentation.R
 import com.lubo.presentation.base.BaseActivity
 import com.lubo.presentation.databinding.AuthActivityBinding
 import com.lubo.presentation.extension.*

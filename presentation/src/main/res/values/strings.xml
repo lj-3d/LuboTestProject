@@ -16,5 +16,6 @@
     <string name="phone_prefix">+380</string>
     <string name="txt_phone_number">Номер телефону</string>
     <string name="error_title">Сталася халепа!</string>
+    <string name="error_unknown_message">Невідома помилка</string>
 
 </resources>

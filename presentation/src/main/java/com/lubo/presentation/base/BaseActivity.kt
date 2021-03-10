@@ -4,30 +4,36 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
 import com.lubo.core.listener.KeyBoardState
 import com.lubo.core.listener.KeyboardStateListener
 import com.lubo.presentation.R
-import kotlinx.android.synthetic.main.auth_activity.*
+import com.lubo.presentation.custom.LuboToolbar
+import com.lubo.repository.base.ErrorHandler
 import org.kodein.di.DIAware
 import org.kodein.di.android.closestDI
 
 
-abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity(), DIAware {
+abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity(), DIAware,
+    ErrorHandler {
 
     override val di by closestDI()
 
-    val errorDialogFragment by lazy {
+    private val errorDialogFragment by lazy {
         ErrorDialogFragment()
     }
 
     protected abstract val viewBinding: ViewBinding?
     abstract val viewModel: AndroidVModel
 
+    var toolbar: LuboToolbar? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding?.root)
+        viewBinding?.apply {
+            toolbar = this.root.findViewById(R.id.toolbar)
+        }
     }
 
     fun setOnKeyboardChangeListener(action: (state: KeyBoardState, keyboardHeight: Int) -> Unit) {
@@ -103,7 +109,7 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
         }
     }
 
-    fun showErrorDialog(title: String = "", message: String, onDismissClick: () -> Unit) {
+    fun showErrorDialog(title: String? = "", message: String?, onDismissClick: () -> Unit) {
         if (errorDialogFragment.isVisible) {
             errorDialogFragment.dismiss()
         }
@@ -111,8 +117,15 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
             if (title.isNullOrEmpty())
                 getString(R.string.error_title) else title
         )
-        errorDialogFragment.setMessage(message)
+        errorDialogFragment.setMessage(
+            if (message.isNullOrEmpty())
+                getString(R.string.error_unknown_message) else message
+        )
         errorDialogFragment.setOnDismissClick(onDismissClick)
         errorDialogFragment.show(supportFragmentManager, errorDialogFragment::class.java.simpleName)
+    }
+
+    override fun onReceiveError(exception: Exception) {
+        showErrorDialog(message = exception.message, onDismissClick = {})
     }
 }
