@@ -1,22 +1,20 @@
 package com.lubo.repository.impl
 
-import android.accounts.NetworkErrorException
 import com.lubo.base.network.auth.AuthNetSource
+import com.lubo.extension.handleResponse
 import com.lubo.impl.network.auth.AuthMapper
 import com.lubo.impl.network.auth.TokenMapper
 import com.lubo.repository.base.AuthRepository
-import com.lubo.repository.mapper.UiResultMapper
-import com.lubo.repository.result.UiResult
 
 internal class AuthRepositoryImpl(
     private val authNetSource: AuthNetSource,
     private val authMapper: AuthMapper,
-    private val tokenMapper: TokenMapper,
-    private val uiResultMapper: UiResultMapper
+    private val tokenMapper: TokenMapper
 ) : AuthRepository {
-    override suspend fun auth(phoneNumber: String): UiResult<Unit> {
-//        return authNetSource.auth(phoneNumber).han .mapToUiResult(uiResultMapper).
-        return UiResult.Error(NetworkErrorException())
+    override suspend fun auth(phoneNumber: String) {
+        authNetSource.auth(phoneNumber).handleResponse { _, _ ->
+
+        }
     }
 
     override suspend fun resendCodeAsync(phoneNumber: String) {

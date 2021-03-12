@@ -3,12 +3,12 @@ package com.lubo.extension
 import com.lubo.base.network.ApiResult
 
 fun <T : Any> ApiResult<T>.handleResponse(
-    onSuccess: (apiResult: ApiResult<T>) -> Unit,
+    onSuccess: (apiCode: Int, data: T) -> Unit,
     onError: ((exception: Exception) -> Unit)? = null
 ) {
     when (this) {
         is ApiResult.Success -> {
-            onSuccess(this)
+            onSuccess(apiCode, data)
         }
         is ApiResult.Error -> {
             onError?.invoke(exception)
@@ -17,5 +17,5 @@ fun <T : Any> ApiResult<T>.handleResponse(
 }
 
 fun <T : Any> ApiResult<T>.handleResponse(
-    onSuccess: (apiResult: ApiResult<T>) -> Unit
+    onSuccess: (apiCode: Int, data: T) -> Unit
 ) = handleResponse(onSuccess, null)

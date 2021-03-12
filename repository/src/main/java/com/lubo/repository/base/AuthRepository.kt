@@ -4,7 +4,7 @@ import com.lubo.repository.result.UiResult
 
 interface AuthRepository : BaseRepository {
 
-    suspend fun auth(phoneNumber: String): UiResult<Unit>
+    suspend fun auth(phoneNumber: String)
 
     suspend fun resendCodeAsync(phoneNumber: String)
 
