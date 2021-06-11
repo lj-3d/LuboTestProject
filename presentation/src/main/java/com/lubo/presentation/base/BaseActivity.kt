@@ -9,13 +9,13 @@ import com.lubo.core.listener.KeyBoardState
 import com.lubo.core.listener.KeyboardStateListener
 import com.lubo.presentation.R
 import com.lubo.presentation.custom.LuboToolbar
-import com.lubo.repository.base.ErrorHandler
 import org.kodein.di.DIAware
 import org.kodein.di.android.closestDI
+import java.lang.Exception
 
 
 abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity(), DIAware,
-    ErrorHandler {
+    BaseViewModel.ErrorListener {
 
     override val di by closestDI()
 
@@ -24,7 +24,7 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
     }
 
     protected abstract val viewBinding: ViewBinding?
-    abstract val viewModel: AndroidVModel
+    abstract val viewModel: BaseViewModel
 
     var toolbar: LuboToolbar? = null
 
@@ -34,6 +34,7 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
         viewBinding?.apply {
             toolbar = this.root.findViewById(R.id.toolbar)
         }
+        viewModel.attachErrorListener(this)
     }
 
     fun setOnKeyboardChangeListener(action: (state: KeyBoardState, keyboardHeight: Int) -> Unit) {
@@ -109,7 +110,11 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
         }
     }
 
-    fun showErrorDialog(title: String? = "", message: String?, onDismissClick: () -> Unit) {
+    fun showErrorDialog(
+        title: String? = null,
+        message: String? = null,
+        onDismissClick: () -> Unit
+    ) {
         if (errorDialogFragment.isVisible) {
             errorDialogFragment.dismiss()
         }
@@ -125,7 +130,11 @@ abstract class BaseActivity<AndroidVModel : BaseViewModel> : AppCompatActivity()
         errorDialogFragment.show(supportFragmentManager, errorDialogFragment::class.java.simpleName)
     }
 
-    override fun onReceiveError(exception: Exception) {
+    override fun showError(exception: Exception) {
         showErrorDialog(message = exception.message, onDismissClick = {})
     }
+
+//    override fun onReceiveError(exception: Exception) {
+//        showErrorDialog(message = exception.message, onDismissClick = {})
+//    }
 }

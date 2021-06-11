@@ -52,7 +52,7 @@ dependencies {
     implementation project(':core')
     implementation project(':network')
     implementation project(':local')
-    implementation project(':repository')
+    implementation project(':data')
     implementation project(':presentation')
 
     implementation(AppDependencies.applicationImplementationLibraries)

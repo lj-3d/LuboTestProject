@@ -11,10 +11,16 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import androidx.viewbinding.ViewBinding
+import com.lubo.RepoResult
+import com.lubo.entity.BaseEntity
 import com.lubo.presentation.R
+import com.lubo.presentation.base.BaseViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.kodein.di.DI.Builder
 import org.kodein.di.DI.Builder.TypeBinder
 import org.kodein.di.DIAware
@@ -156,4 +162,24 @@ fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
     val layoutManager = recyclerView.layoutManager ?: return RecyclerView.NO_POSITION
     val snapView = findSnapView(layoutManager) ?: return RecyclerView.NO_POSITION
     return layoutManager.getPosition(snapView)
+}
+
+fun <T : BaseEntity> BaseViewModel.launch(
+    request: suspend () -> RepoResult<T>,
+    doOnSuccess: (result: T) -> Unit,
+    doOnError: (exception: Exception) -> Unit
+) {
+    this.viewModelScope.launch {
+        when (val request = request()) {
+            is RepoResult.Success -> {
+                doOnSuccess(request.data)
+            }
+            is RepoResult.Error -> {
+                doOnError(request.exception!!)
+            }
+            else -> {
+                TODO("LaunchRequest unhandled sealed class!!!")
+            }
+        }
+    }
 }

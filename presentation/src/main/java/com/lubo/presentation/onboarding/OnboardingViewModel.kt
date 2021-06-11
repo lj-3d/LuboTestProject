@@ -4,7 +4,7 @@ import android.app.Application
 import com.lubo.core.model.OnboardingModel
 import com.lubo.presentation.R
 import com.lubo.presentation.base.BaseViewModel
-import com.lubo.repository.base.OnboardingRepository
+import com.lubo.repository.OnboardingRepository
 
 class OnboardingViewModel(application: Application, private val repository: OnboardingRepository) :
     BaseViewModel(application) {

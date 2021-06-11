@@ -1,19 +1,20 @@
 package com.lubo.impl.network.auth
 
 import com.google.gson.JsonObject
-import com.lubo.base.network.ApiResult
-import com.lubo.base.network.BaseNetworkSource
-import com.lubo.base.network.EmptyNetModel
+import com.lubo.base.ApiResult
+import com.lubo.base.BaseNetworkSource
+import com.lubo.base.EmptyNetModel
 import com.lubo.impl.network.NetServices
-import com.lubo.base.network.auth.AuthNetSource
-import com.lubo.base.network.auth.models.RefreshTokenResponse
+import com.lubo.base.auth.AuthNetSource
+import com.lubo.base.auth.models.AuthDataModel
+import com.lubo.base.auth.models.RefreshTokenResponse
 import okhttp3.RequestBody.Companion.toRequestBody
 
 class AuthNetSourceImpl : AuthNetSource, BaseNetworkSource() {
 
     private val authService = NetServices.authService
 
-    override suspend fun auth(phoneNumber: String): ApiResult<EmptyNetModel> {
+    override suspend fun auth(phoneNumber: String): ApiResult<AuthDataModel> {
         val json = JsonObject()
         json.addProperty("phoneNumber", phoneNumber)
         return apiRequest { authService.authAsync(json.toString().toRequestBody()) }

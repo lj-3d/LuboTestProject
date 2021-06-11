@@ -1,6 +1,6 @@
 package com.lubo.extension
 
-import com.lubo.base.network.ApiResult
+import com.lubo.base.ApiResult
 
 fun <T : Any> ApiResult<T>.handleResponse(
     onSuccess: (apiCode: Int, data: T) -> Unit,

@@ -20,7 +20,7 @@ class AuthActivity : BaseActivity<AuthViewModel>() {
             toolbar.onBack {
                 popFragmentStackOrFinish()
             }
-            addFragment(Pair(RegisterFragment(), null))
+            addFragment(Pair(ConfirmAuthFragment(), null))
         }
     }
 }

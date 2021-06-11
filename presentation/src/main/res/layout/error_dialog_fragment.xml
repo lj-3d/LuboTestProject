@@ -4,6 +4,8 @@
         style="@style/LLVMatchWrap"
         android:gravity="center_horizontal"
         tools:viewBindingIgnore="true"
+        android:paddingStart="@dimen/offset_16"
+        android:paddingEnd="@dimen/offset_16"
         tools:background="@drawable/dialog_rounded_background">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -16,13 +18,17 @@
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtErrorTitle"
             style="@style/TxtMedium"
+            android:gravity="center"
+            android:textColor="@color/primary_black"
             android:text="@string/error_title"
             android:textSize="@dimen/txt_size_20" />
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtErrorMessage"
             style="@style/TxtMedium"
+            android:textColor="@color/primary_black"
             tools:text="Напишіть тут тіло помилки"
+            android:gravity="center"
             android:layout_marginTop="@dimen/offset_8"
             android:textSize="@dimen/txt_size_16" />
 
@@ -33,7 +39,5 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="@dimen/offset_24"
             android:layout_marginTop="@dimen/offset_24"
-            android:layout_marginStart="@dimen/offset_16"
-            android:layout_marginEnd="@dimen/offset_16"
             android:text="@string/btn_understood" />
 </LinearLayout>

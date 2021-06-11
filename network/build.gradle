@@ -4,6 +4,7 @@ plugins {
 
 
 dependencies {
+    implementation project(':domain')
     implementation(AppDependencies.kodein)
     implementation(AppDependencies.networkDataImplementationLibraries)
 }

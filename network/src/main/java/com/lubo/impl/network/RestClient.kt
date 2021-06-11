@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RestClient {
 
-    private const val baseUrl = "https://devlightapp-299821.ew.r.appspot.com/"
+    private const val baseUrl = "https://aged-breeze-7716.fly.dev/"
     val retrofit: Retrofit by lazy(LazyThreadSafetyMode.NONE) {
         Retrofit.Builder()
             .client(
@@ -18,12 +18,10 @@ object RestClient {
                     .addInterceptor(HttpLoggingInterceptor().also {
                         it.setLevel(HttpLoggingInterceptor.Level.BODY)
                     })
-                    .addInterceptor(object : Interceptor {
-                        override fun intercept(chain: Interceptor.Chain): Response {
-                            val requestBuilder: Request.Builder = chain.request().newBuilder()
-                            requestBuilder.header("Content-Type", "application/json")
-                            return chain.proceed(requestBuilder.build())
-                        }
+                    .addInterceptor(Interceptor { chain ->
+                        val requestBuilder: Request.Builder = chain.request().newBuilder()
+                        requestBuilder.header("Content-Type", "application/json")
+                        chain.proceed(requestBuilder.build())
                     }).build()
             )
             .baseUrl(baseUrl)

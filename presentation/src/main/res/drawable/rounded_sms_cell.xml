@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="@color/white">
+    <item>
+        <shape>
+            <corners android:radius="@dimen/btn_cell_radius" />
+            <size android:height="@dimen/sms_cell_height" />
+            <size android:width="@dimen/sms_cell_width" />
+            <solid android:color="@color/sms_cell_color" />
+        </shape>
+    </item>
+</ripple>

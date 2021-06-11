@@ -26,7 +26,10 @@
     <dimen name="txt_size_20">20sp</dimen>
     <dimen name="txt_size_24">24sp</dimen>
 
+    <dimen name="sms_cell_height">52dp</dimen>
+    <dimen name="sms_cell_width">48dp</dimen>
     <dimen name="btn_height">52dp</dimen>
+    <dimen name="btn_cell_radius">12dp</dimen>
     <dimen name="btn_corner_radius">50dp</dimen>
 
 </resources>

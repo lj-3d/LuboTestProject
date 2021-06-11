@@ -15,6 +15,15 @@ class ErrorDialogFragment : BottomSheetDialogFragment() {
     private var txtDialogMessage: AppCompatTextView? = null
     private var btnDialogUnderstood: View? = null
 
+    private var title: String = ""
+    private var message: String = ""
+    private var onDismissClick: (() -> Unit)? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.CustomBottomSheetDialog)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,31 +32,33 @@ class ErrorDialogFragment : BottomSheetDialogFragment() {
         return inflater.inflate(
             R.layout.error_dialog_fragment, container,
             false
-        ).also {
-            txtDialogTitle = it.findViewById(R.id.txtErrorTitle)
-            txtDialogMessage = it.findViewById(R.id.txtErrorMessage)
-            btnDialogUnderstood = it.findViewById(R.id.btnUnderstood)
-            setOnDismissClick {  }
-        }
+        )
     }
 
-    override fun getTheme(): Int {
-        return R.style.CustomBottomSheetDialog
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        txtDialogTitle = view.findViewById(R.id.txtErrorTitle)
+        txtDialogMessage = view.findViewById(R.id.txtErrorMessage)
+        btnDialogUnderstood = view.findViewById(R.id.btnUnderstood)
+
+        txtDialogTitle?.text = title
+        txtDialogMessage?.text = message
+        btnDialogUnderstood?.setOnClickListener {
+            this.onDismissClick?.invoke()
+            dismiss()
+        }
     }
 
     fun setTitle(title: String) {
-        txtDialogTitle?.text = title
+        this.title = title
     }
 
     fun setMessage(message: String) {
-        txtDialogMessage?.text = message
+        this.message = message
     }
 
     fun setOnDismissClick(onDismissClick: () -> Unit) {
-        btnDialogUnderstood?.setOnClickListener {
-            onDismissClick()
-            dismiss()
-        }
+        this.onDismissClick = onDismissClick
     }
 
 }

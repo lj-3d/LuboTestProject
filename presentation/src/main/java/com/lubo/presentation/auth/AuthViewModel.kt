@@ -1,19 +1,26 @@
 package com.lubo.presentation.auth
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.viewModelScope
+import com.lubo.entity.AuthEntity
 import com.lubo.presentation.base.BaseViewModel
-import com.lubo.repository.base.AuthRepository
-import kotlinx.coroutines.Dispatchers
+import com.lubo.presentation.extension.launch
+import com.lubo.repository.AuthRepository
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class AuthViewModel(application: Application, private val authRepository: AuthRepository) :
     BaseViewModel(application) {
 
     fun auth(phoneNumber: String) {
-        viewModelScope.launch {
+        launch({
             authRepository.auth(phoneNumber)
-        }
+        }, {
+            errorListener?.showError(Exception(it.message))
+        }, {
+            Log.d("Exception ->", it.message.toString())
+        })
     }
 
     fun resendCodeAsync(phoneNumber: String) {

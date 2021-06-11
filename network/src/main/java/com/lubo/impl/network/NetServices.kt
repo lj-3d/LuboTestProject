@@ -1,6 +1,6 @@
 package com.lubo.impl.network
 
-import com.lubo.base.network.auth.AuthService
+import com.lubo.base.auth.AuthService
 
 class NetServices {
 
